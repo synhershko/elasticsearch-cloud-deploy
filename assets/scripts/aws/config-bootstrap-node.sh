@@ -28,4 +28,4 @@ SEED_HOSTS=`echo "$MASTER_IPS" | paste -sd ',' -`
 INITIAL_MASTER_NODES=`echo "$MASTER_IPS" | awk '{print "ip-" $0}' | tr . - | paste -sd ',' -`
 
 echo "discovery.seed_hosts: $SEED_HOSTS" >>/etc/elasticsearch/elasticsearch.yml
-echo "cluster.initial_master_nodes: $(hostname -I),$SEED_HOSTS" >>/etc/elasticsearch/elasticsearch.yml
+echo "cluster.initial_master_nodes: $(hostname),$INITIAL_MASTER_NODES" >>/etc/elasticsearch/elasticsearch.yml

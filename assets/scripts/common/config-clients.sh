@@ -70,7 +70,7 @@ if [ -f "/etc/kibana/kibana.yml" ]; then
     if [ "$BIND_TO_ALL" == "true" ]; then
         echo "server.host: 0.0.0.0" | sudo tee -a /etc/kibana/kibana.yml
     else
-        echo "server.host: $(hostname -I)" | sudo tee -a /etc/kibana/kibana.yml
+        echo "server.host: $(hostname -i)" | sudo tee -a /etc/kibana/kibana.yml
     fi
 
     echo "xpack.security.enabled: $security_enabled" | sudo tee -a /etc/kibana/kibana.yml
