@@ -42,6 +42,7 @@ resource "google_compute_autoscaler" "singlenode" {
 
 resource "google_compute_instance_template" "singlenode" {
   provider = google-beta
+  name_prefix    = "${var.es_cluster}-instance-template-single"
 
   project      = "${var.gcp_project_id}"
   machine_type = "${var.data_machine_type}"
@@ -71,4 +72,9 @@ resource "google_compute_instance_template" "singlenode" {
   service_account {
     scopes = ["userinfo-email", "compute-rw", "storage-ro"]
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
 }

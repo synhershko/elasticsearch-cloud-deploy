@@ -20,4 +20,4 @@ chown elasticsearch:elasticsearch /usr/share/elasticsearch/logs
 chown elasticsearch:elasticsearch /usr/share/elasticsearch/data
 
 mv elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
-
+chown elasticsearch:elasticsearch /etc/elasticsearch/elasticsearch.yml
